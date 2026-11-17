@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+// Obtener todos los artículos
+export async function getStaticPaths() {
+
+  const posts = await getCollection("blog");
+
+  return posts.map((post) => ({
+
+    params: {
+      slug: post.id
+    },
+
+    props: {
+      post
+    }
+
+  }));
+
+}
+
+// Recibir el artículo correspondiente
+const { post } = Astro.props;
+
+// Convertir Markdown en contenido visualizable
+const { Content } = await render(post);
+
+---
+
+<BaseLayout title={`WebLab | ${post.data.title}`}>
+
+  <article>
+
+    <h1>{post.data.title}</h1>
+
+    <p>{post.data.description}</p>
+
+    <small>
+      Publicado el:
+      {post.data.pubDate.toLocaleDateString("es-ES")}
+    </small>
+
+    <hr />
+
+    <Content />
+
+    <p>
+      <a href="/blog/">← Volver al blog</a>
+    </p>
+
+  </article>
+
+</BaseLayout>

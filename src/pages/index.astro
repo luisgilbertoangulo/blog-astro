@@ -1,16 +1,36 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="WebLab | Inicio">
+
+  <section class="hero">
+
+    <h1>Bienvenido a WebLab</h1>
+
+    <h2>Transformamos ideas en soluciones digitales</h2>
+
+    <p>
+      Diseñamos y desarrollamos páginas web
+      para empresas y profesionales.
+    </p>
+
+    <a class="boton" href="/nosotros/">
+      Conócenos
+    </a>
+
+  </section>
+
+  <section>
+
+    <h2>Qué hacemos</h2>
+
+    <p>
+      Creamos páginas web, tiendas online
+      y soluciones digitales adaptadas
+      a cada negocio.
+    </p>
+
+  </section>
+
+</BaseLayout>

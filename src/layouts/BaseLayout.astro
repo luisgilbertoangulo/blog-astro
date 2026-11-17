@@ -1,0 +1,106 @@
+---
+const { title = "WebLab | Desarrollo web" } = Astro.props;
+import MenuPrincipal from "../components/MenuPrincipal.astro";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+
+  <title>{title}</title>
+
+  <meta
+    name="description"
+    content="WebLab, soluciones digitales y desarrollo web."
+  />
+
+  <style is:global>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #263445;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #172b4d;
+      color: white;
+      padding: 20px;
+    }
+
+    nav {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      min-height: 55vh;
+    }
+
+    .hero {
+      background: #eaf2ff;
+      padding: 60px 30px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .boton {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .tarjeta {
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #172b4d;
+      color: white;
+      padding: 25px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer>
+    <p>WebLab © 2026 - Desarrollo web</p>
+  </footer>
+
+</body>
+</html>

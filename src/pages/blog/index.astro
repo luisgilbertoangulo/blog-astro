@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+// Obtener todos los artículos
+const posts = await getCollection("blog");
+
+// Ordenar por fecha, del más reciente al más antiguo
+const sortedPosts = posts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="WebLab | Blog">
+
+  <h1>Blog de WebLab</h1>
+
+  <p>
+    Noticias, consejos y novedades
+    sobre desarrollo web.
+  </p>
+
+  {
+    sortedPosts.map((post) => (
+
+      <article class="tarjeta">
+
+        <h2>
+          <a href={`/blog/${post.id}/`}>
+            {post.data.title}
+          </a>
+        </h2>
+
+        <p>{post.data.description}</p>
+
+        <small>
+          Publicado el:
+          {post.data.pubDate.toLocaleDateString("es-ES")}
+        </small>
+
+      </article>
+
+    ))
+  }
+
+</BaseLayout>
